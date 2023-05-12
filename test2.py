@@ -62,10 +62,10 @@ def Receive():
     def receiver():
         ID=SendorID.get()
         filename1=Incoming_filename.get()
-
+        print(ID)
         s=socket.socket()
         port=8080
-        s.connect((ID,port))
+        s.connect(("localhost",port))
         file=open(filename1,'wb')
         file_data=s.recv(1024)
         file.write(file_data)
@@ -95,7 +95,7 @@ def Receive():
 
 
     #image_icon1=PhotoImage(file="media/abc.png")
-    rr=Button(window,text="Reveive",compound=LEFT,image=image_icon1,width=130,bg='#39c790',font="arial 14 bold")
+    rr=Button(window,text="Reveive",compound=LEFT,image=image_icon1,width=130,bg='#39c790',font="arial 14 bold",command=receiver)
     rr.place(x=20,y=500)
     
 
